@@ -1,0 +1,19 @@
+# Copiar a ~/.zshrc.local y dejar solo lo que exista en esta máquina.
+export NVM_DIR="$HOME/.nvm"
+export BUN_INSTALL="$HOME/.bun"
+export PNPM_HOME="$HOME/Library/pnpm"   # Linux: $HOME/.local/share/pnpm
+
+path=(
+  "$PNPM_HOME/bin"
+  "$HOME/sdks/flutter/bin"
+  "$HOME/.opencode/bin"
+  "$HOME/.local/bin"
+  "$HOME/.kimi-code/bin"
+  "$BUN_INSTALL/bin"
+  $path
+  "$HOME/.lmstudio/bin"
+)
+typeset -U path
+
+[[ -s $HOME/.bun/_bun ]] && source $HOME/.bun/_bun
+(( $+commands[pyenv] )) && eval "$(pyenv init -)"

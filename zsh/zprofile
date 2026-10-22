@@ -1,0 +1,14 @@
+# Homebrew (solo macOS): Apple Silicon o Intel.
+for brew in /opt/homebrew/bin/brew /usr/local/bin/brew; do
+  if [[ -x $brew ]]; then
+    eval "$($brew shellenv zsh)"
+    break
+  fi
+done
+unset brew
+
+# ~/.local/bin: kitty y kitten en Linux.
+[[ -d $HOME/.local/bin ]] && path=("$HOME/.local/bin" $path)
+
+# OrbStack (solo macOS): command-line tools and integration
+source ~/.orbstack/shell/init.zsh 2>/dev/null || :

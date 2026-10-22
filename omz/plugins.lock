@@ -1,0 +1,8 @@
+# Versiones fijadas de oh-my-zsh y sus plugins. Formato:
+# <destino relativo a $ZSH>  <url>  <commit>
+# Para actualizar un plugin: cambia aquí su commit y vuelve a correr ./install.sh
+.                                         https://github.com/ohmyzsh/ohmyzsh.git                           4d4cfc287e9d887b81242c0e431b5f49f9cec5c1
+custom/themes/powerlevel10k               https://github.com/romkatv/powerlevel10k.git                     a0c9dbe80be404ff58e3ce5d7cf312582e370635
+custom/plugins/zsh-autosuggestions        https://github.com/zsh-users/zsh-autosuggestions.git             85919cd1ffa7d2d5412f6d3fe437ebdbeeec4fc5
+custom/plugins/zsh-autocomplete           https://github.com/marlonrichert/zsh-autocomplete.git            20f6c34f20270084b21211428afb6d2534aae8e9
+custom/plugins/fast-syntax-highlighting   https://github.com/zdharma-continuum/fast-syntax-highlighting.git 3d574ccf48804b10dca52625df13da5edae7f553

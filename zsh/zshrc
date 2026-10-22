@@ -1,0 +1,41 @@
+source $HOME/.oh-my-zsh/custom/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
+# Versiones fijadas en ~/dotfiles/omz/plugins.lock: no auto-actualizar.
+zstyle ':omz:update' mode disabled
+
+# zsh-autocomplete se carga arriba con source, no aquí.
+plugins=(
+  zsh-autosuggestions
+  sudo
+  node
+  ng
+  nvm
+  npm
+  pip
+  pipenv
+  pod
+)
+
+source $ZSH/oh-my-zsh.sh
+
+# ======= ALIAS =======
+# En Debian/Ubuntu bat se instala como batcat.
+(( $+commands[lsd] )) && alias ls="lsd"
+if (( $+commands[bat] )); then
+  alias cat="bat"
+elif (( $+commands[batcat] )); then
+  alias cat="batcat"
+fi
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# PATH y herramientas propias de cada máquina (nvm, pyenv, bun, flutter...).
+[[ ! -f ~/.zshrc.local ]] || source ~/.zshrc.local
