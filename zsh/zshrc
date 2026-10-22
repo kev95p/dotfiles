@@ -10,6 +10,12 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Versiones fijadas en ~/dotfiles/omz/plugins.lock: no auto-actualizar.
 zstyle ':omz:update' mode disabled
 
+# nvm se carga la primera vez que se usa node/npm/nvm, no al abrir la terminal.
+zstyle ':omz:plugins:nvm' lazy yes
+
+# Autocompletado de Docker (lo genera Docker Desktop u OrbStack).
+[[ -d $HOME/.docker/completions ]] && fpath=("$HOME/.docker/completions" $fpath)
+
 # zsh-autocomplete se carga arriba con source, no aquí.
 plugins=(
   zsh-autosuggestions
